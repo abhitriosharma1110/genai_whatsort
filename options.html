@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp AI Bot - Settings</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>WhatsApp AI Bot Settings</h1>
+            <p>Configure your AI chatbot for WhatsApp Web</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>API Configuration</h2>
+                <div class="form-group">
+                    <label for="apiKey">Gemini API Key</label>
+                    <input type="password" id="apiKey" placeholder="Enter your Gemini API key">
+                    <small>Get your free API key from <a href="https://ai.google.dev/" target="_blank">Google AI Studio</a></small>
+                </div>
+                <button id="testConnection" class="btn btn-secondary">Test Connection</button>
+            </div>
+
+            <div class="section">
+                <h2>Response Settings</h2>
+                <div class="form-group">
+                    <label for="responseDelay">Response Delay (ms)</label>
+                    <input type="number" id="responseDelay" min="500" max="10000" value="3000">
+                    <small>Delay before sending AI response (500-10000ms)</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="typingDelay">Typing Simulation (ms)</label>
+                    <input type="number" id="typingDelay" min="100" max="5000" value="1500">
+                    <small>Time to simulate typing before response (100-5000ms)</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="maxResponseLength">Max Response Length</label>
+                    <input type="number" id="maxResponseLength" min="50" max="1000" value="500">
+                    <small>Maximum characters in AI response (50-1000)</small>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Behavior Settings</h2>
+                <div class="checkbox-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="contextAwareness">
+                        <span class="checkmark"></span>
+                        Context Awareness
+                    </label>
+                    <small>Use chat history for better responses</small>
+                </div>
+
+                <div class="checkbox-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="personalizedResponses">
+                        <span class="checkmark"></span>
+                        Personalized Responses
+                    </label>
+                    <small>Adapt responses based on conversation style</small>
+                </div>
+
+                <div class="checkbox-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="respectMute">
+                        <span class="checkmark"></span>
+                        Respect Mute Settings
+                    </label>
+                    <small>Don't respond to muted chats</small>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Message Filters</h2>
+                <div class="form-group">
+                    <label for="ignoreKeywords">Ignore Keywords</label>
+                    <textarea id="ignoreKeywords" placeholder="Enter keywords to ignore, separated by commas"></textarea>
+                    <small>Bot won't respond to messages containing these keywords</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="responseKeywords">Response Keywords</label>
+                    <textarea id="responseKeywords" placeholder="Enter keywords that trigger responses, separated by commas"></textarea>
+                    <small>Bot will only respond to messages containing these keywords (leave empty for all messages)</small>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Safety & Privacy</h2>
+                <div class="checkbox-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="logMessages">
+                        <span class="checkmark"></span>
+                        Log Messages Locally
+                    </label>
+                    <small>Store message logs for debugging (data stays on your device)</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="rateLimitPerHour">Rate Limit (messages/hour)</label>
+                    <input type="number" id="rateLimitPerHour" min="1" max="100" value="30">
+                    <small>Maximum responses per hour to prevent spam</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button id="resetSettings" class="btn btn-outline">Reset to Defaults</button>
+            <button id="saveSettings" class="btn btn-primary">Save Settings</button>
+        </div>
+
+        <div id="statusMessage" class="status-message"></div>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>
